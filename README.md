@@ -1,29 +1,166 @@
-# Create T3 App
+# Prism Venture Website (Portfolio Project)
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+## Important Notice
 
-## What's next? How do I make an app with this?
+This repository contains code for a website developed for Prism Venture. This code is shared as a portfolio piece with permission from the client. All rights to the design, content, and implementation are reserved by Prism Venture. This code is not available for reuse, redistribution, or modification without explicit permission.
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+## Overview
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+This website serves as the online presence for Prism Venture, a company with 14+ years of experience offering three distinct business lines:
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [Drizzle](https://orm.drizzle.team)
-- [Tailwind CSS](https://tailwindcss.com)
-- [tRPC](https://trpc.io)
+1. **Apparel Division** - A buying house for woven, knit, and sweater products
+2. **Jute Division** - Sustainable jute products including bags, fabrics, and rope
+3. **IT Division** - Data processing solutions with specialized security and quality control
 
-## Learn More
+## Tech Stack
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+- **Framework**: Next.js
+- **Styling**: CSS modules (global.css)
+- **Components**: Custom UI components
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+## Project Structure
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+```
+├── public/            # Static assets
+├── src/
+│   ├── app/           # Next.js app router structure
+│   │   ├── _components/  # Shared components
+│   │   │   ├── navbar.tsx
+│   │   │   ├── serviceCard.tsx
+│   │   │   └── topBar.tsx
+│   │   ├── apparel/    # Apparel section pages
+│   │   │   ├── about.tsx
+│   │   │   ├── gallery.tsx
+│   │   │   ├── hero.tsx
+│   │   │   ├── page.tsx
+│   │   │   ├── product.tsx
+│   │   │   └── services.tsx
+│   │   ├── contact/    # Contact page
+│   │   │   └── page.tsx
+│   │   ├── it/         # IT services section
+│   │   │   ├── about.tsx
+│   │   │   ├── hero.tsx
+│   │   │   ├── page.tsx
+│   │   │   ├── quality.tsx
+│   │   │   ├── security.tsx
+│   │   │   └── services.tsx
+│   │   └── jute/       # Jute products section
+│   │       ├── about.tsx
+│   │       ├── gallery.tsx
+│   │       ├── hero.tsx
+│   │       ├── home.tsx
+│   │       ├── layout.tsx
+│   │       ├── page.tsx
+│   │       ├── product.tsx
+│   │       └── services.tsx
+│   ├── components/ui/  # Reusable UI components
+│   │   ├── button.tsx
+│   │   ├── card.tsx
+│   │   ├── dropdown-menu.tsx
+│   │   ├── navigation-menu.tsx
+│   │   ├── sheet.tsx
+│   │   └── toggle.tsx
+│   ├── hooks/         # Custom React hooks
+│   │   └── useCounter.ts
+│   ├── lib/           # Utility functions
+│   │   └── utils.ts
+│   └── styles/        # Global styles
+│       ├── global.css
+```
 
-## How do I deploy this?
+## Features
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+- **Multi-section Website**: Dedicated sections for apparel, jute, and IT services
+- **Responsive Design**: Works on mobile, tablet, and desktop devices
+- **Component-based Architecture**: Reusable UI components for consistent design
+- **Modern UI Elements**: Custom buttons, cards, dropdown menus, etc.
+
+## Apparel Section
+
+Showcases Prism Venture's buying house services for:
+- Woven products (suits, jackets, denims, pants, skirts)
+- Knit products (tees, polos, sweatshirts, hoodies)
+- Sweater products (sweaters, jumpers, vests, cardigans)
+
+Includes service descriptions for development, factory identification, quality control, and manufacturing guidance.
+
+## Jute Section
+
+Features Prism Venture's eco-friendly jute products:
+- Jute rope
+- Jute fabrics
+- Jute bags
+- Other jute products
+
+Emphasizes sustainability and environmental benefits of jute materials.
+
+## IT Section
+
+Details Prism Venture's data processing solutions:
+- Data entry services
+- Scanning and OCR cleanup
+- Data sorting
+- Survey and questionnaire handling
+- Airway bill entries
+- Market research tabulation
+- Customer command card management
+
+Includes detailed information on security measures and quality control processes.
+
+## Contact Information
+
+Prism Venture
+- Address: House # 317 (2nd floor), Road # 04, Baridhara DOHS, Dhaka-1206
+- Phone: +880-02-8417590, +8801713363842
+- Email: saadi@prismbd.net
+
+## My Contribution
+I designed and developed this website from concept to deployment, including:
+
+- Creating a unified design system across three distinct business sections
+- Implementing responsive layouts that maintain brand consistency
+- Building reusable component library for efficient development
+- Optimizing for performance and SEO
+
+## Getting Started
+
+### Prerequisites
+- Node.js (v14 or newer)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository
+```bash
+git clone https://github.com/yourusername/prism-venture-website.git
+cd prism-venture-website
+```
+
+2. Install dependencies
+```bash
+npm install
+# or
+yarn install
+```
+
+3. Create a `.env` file based on `.env.example`
+
+4. Run the development server
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+### Building for Production
+
+```bash
+npm run build
+# or
+yarn build
+```
+
+# License and Usage
+This codebase is shared for portfolio purposes only. The code and design are proprietary to Prism Venture and cannot be used, copied, modified, or distributed without permission. If you're interested in similar work, please contact me directly.
