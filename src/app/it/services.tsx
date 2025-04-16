@@ -98,7 +98,7 @@ export default function ItService({ backgroundImage }: ItServiceProps) {
                 backgroundPosition: "center",
                 backgroundAttachment: "fixed",
                 position: 'relative',
-                padding: "4rem 1.5rem 4rem 1.5rem"
+                padding: "2.5rem"
             }}
         >
             <div className="absolute inset-0 bg-[#0000009e] opacity-85" />

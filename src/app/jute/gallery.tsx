@@ -154,7 +154,7 @@ export default function JuteGallery() {
         <motion.div
             id="gallery"
             className="w-full bg-[#fffdea] py-24 md:py-32 overflow-hidden"
-            style={{ position: 'relative', padding: "4rem 1.5rem" }}
+            style={{ position: 'relative', padding: "2.5rem" }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: "easeOut" }}

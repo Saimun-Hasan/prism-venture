@@ -34,7 +34,7 @@ export default function ItAbout({ yearsOfExperience, imageSrc }: ApparelAboutPro
             id="about"
             className="w-full bg-[#fffdea] py-24 md:py-32 overflow-hidden"
             ref={ref}
-            style={{ padding: "4rem 1.5rem 4rem 1.5rem" }}
+            style={{ padding: "2.5rem" }}
         >
             <div className="flex min-h-screen items-center justify-center text-white">
                 <div className="container px-4">

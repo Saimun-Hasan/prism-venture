@@ -50,7 +50,7 @@ export default function JuteProduct() {
             className="w-full bg-[#fffdea] py-24 md:py-32 overflow-hidden"
             style={{
                 position: 'relative',
-                padding: "4rem 1.5rem 4rem 1.5rem"
+                padding: "2.5rem"
             }}
         >
             <AnimatePresence>

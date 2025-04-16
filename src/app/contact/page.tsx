@@ -35,7 +35,7 @@ export default function Contact() {
                 backgroundPosition: "center",
                 backgroundAttachment: "fixed",
                 position: 'relative',
-                padding: "0rem 1.5rem 0rem 1.5rem"
+                padding: "2.5rem"
             }}
         >
             <div className="absolute inset-0 bg-[#0000009e] opacity-85" />
@@ -98,23 +98,22 @@ export default function Contact() {
                                                 </li>
                                             </ul>
 
-                                            <div className='flex flex-col items-start'>
-                                                <Link href="tel:+880-02-8417590" className="flex gap-1.5 items-center hover:text-yellow-200 transition-colors w-full sm:w-auto justify-center sm:justify-start py-1 text-xs md:text-sm" prefetch={false}>
-                                                    <PhoneCall size={16} strokeWidth={1.75} className="shrink-0 hidden sm:block" />
+                                            <div className='flex flex-col justify-start'>
+                                                <Link href="tel:+880-02-8417590" className="flex gap-1.5 hover:text-yellow-200 transition-colors w-full sm:w-auto py-1 text-xs md:text-sm" prefetch={false}>
+                                                    <PhoneCall size={16} strokeWidth={1.75} className="shrink-0" />
                                                     <span className="truncate">+880-02-8417590</span>
                                                 </Link>
-                                                <Link href="tel:+8801713363842" className="flex gap-1.5 items-center hover:text-yellow-200 transition-colors w-full sm:w-auto justify-center sm:justify-start py-1 text-xs md:text-sm" prefetch={false}>
-                                                    <PhoneCall size={16} strokeWidth={1.75} className="shrink-0 hidden sm:block" />
+                                                <Link href="tel:+8801713363842" className="flex gap-1.5 hover:text-yellow-200 transition-colors w-full sm:w-auto py-1 text-xs md:text-sm" prefetch={false}>
+                                                    <PhoneCall size={16} strokeWidth={1.75} className="shrink-0" />
                                                     <span className="truncate">+8801713363842</span>
                                                 </Link>
-                                                <Link href="mailto:saadi@prismbd.net" className="flex gap-1.5 items-center hover:text-yellow-200 transition-colors w-full sm:w-auto justify-center sm:justify-start py-1 text-xs md:text-sm" prefetch={false}>
-                                                    <Mail size={16} strokeWidth={1.75} className="shrink-0 hidden sm:block" />
+                                                <Link href="mailto:saadi@prismbd.net" className="flex gap-1.5 hover:text-yellow-200 transition-colors w-full sm:w-auto py-1 text-xs md:text-sm" prefetch={false}>
+                                                    <Mail size={16} strokeWidth={1.75} className="shrink-0" />
                                                     <span className="truncate">saadi@prismbd.net</span>
                                                 </Link>
                                             </div>
                                         </div>
                                     </div>
-                                    {/* End Contact Info */}
                                 </motion.div>
                             </div>
                         </div>

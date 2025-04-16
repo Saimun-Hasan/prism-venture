@@ -40,11 +40,11 @@ export default function ApparelHero({ backgroundImage }: HeroProps) {
         >
             <div className="flex min-h-screen flex-col items-center xl:items-end justify-center text-white">
                 <div className="container px-4">
-                    <div className="flex flex-col lg:flex-row">
+                    <div className="flex flex-col justify-center lg:flex-row">
                         <div className="xl:w-1/2"></div>
                         <div className="xl:w-3/4">
                             <div className="bg-[#000000ad] bg-opacity-70 p-4 md:p-6 rounded-lg">
-                                <h1 className="text-[#fff7a6] text-center xl:text-left text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold italic">
+                                <h1 className="text-[#fff7a6] text-center xl:text-left text-4xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold italic">
                                     <motion.span
                                         initial="hidden"
                                         animate="visible"
@@ -61,7 +61,7 @@ export default function ApparelHero({ backgroundImage }: HeroProps) {
                                         ))}
                                     </motion.span>
                                 </h1>
-                                <h1 className="text-white text-center xl:text-left text-xl sm:text-2xl md:text-3xl lg:text-5xl xl:text-6xl font-bold mt-2 italic">
+                                <h1 className="text-white text-center xl:text-left text-3xl sm:text-2xl md:text-3xl lg:text-5xl xl:text-6xl font-bold mt-2 italic">
                                     <motion.div
                                         initial={{ opacity: 0, y: 20 }}
                                         animate={{ opacity: 1, y: 0 }}
