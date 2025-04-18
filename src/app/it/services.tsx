@@ -111,7 +111,7 @@ export default function ItService({ backgroundImage }: ItServiceProps) {
                         initial="hidden"
                         animate={isInView ? "visible" : "hidden"}
                     >
-                        <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold mb-6 text-white leading-12 italic">
+                        <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold mb-6 text-white leading-12">
                             <motion.span
                                 initial={{ opacity: 0, x: -30 }}
                                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}

@@ -80,6 +80,15 @@ export default function Home() {
                 >
                     <div className="text-center">
                         <h1 className="text-5xl font-extrabold tracking-tight text-[#fff7a6] sm:text-[5rem]">
+                            <Image
+                                src={'/prism-bd.webp'}
+                                alt={"logo"}
+                                quality={80}
+                                priority
+                                width={150}
+                                height={150}
+                                className="transition-transform duration-700 ease-in-out justify-self-center mb-6"
+                            />
                             Prism Venture
                         </h1>
                         <p className="mt-4 text-xl text-white/90 max-w-2xl mx-auto">

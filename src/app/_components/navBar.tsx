@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 // UI Components
 import { Button } from "@/components/ui/button";
@@ -24,15 +24,17 @@ import Topbar from "./topBar";
 
 export default function NavBar() {
     const pathname = usePathname();
+    const router = useRouter();
     const [isScrolled, setIsScrolled] = useState(false);
     const [isSheetOpen, setIsSheetOpen] = useState(false);
 
     const currentYear = new Date().getFullYear();
 
     const isHomePage = pathname === "/";
-    const isJutepage = pathname === "/jute"
-    const isItpage = pathname === "/it"
-    const isContact = pathname === "/contact"
+    // const isJutepage = pathname === "/jute";
+    const isItpage = pathname === "/it";
+    const isContact = pathname === "/contact";
+    const isProduct = pathname === "/product";
 
     const handleScroll = () => {
         if (window.scrollY > 50) {
@@ -49,6 +51,36 @@ export default function NavBar() {
         };
     }, []);
 
+    const scrollToSection = useCallback((sectionId: string) => {
+        setIsSheetOpen(false);
+        const section = document.getElementById(sectionId);
+        if (section) {
+            section.scrollIntoView({ behavior: 'smooth' });
+        }
+    }, []);
+
+    const handleNavigation = useCallback((path: string, sectionId: string | null = null) => {
+        setIsSheetOpen(false);
+
+        if (path === pathname) {
+            if (sectionId) {
+                scrollToSection(sectionId);
+            }
+            return;
+        }
+
+        router.push(path);
+
+        if (sectionId) {
+            setTimeout(() => {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    section.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 300);
+        }
+    }, [pathname, router, scrollToSection]);
+
     return (
         <>
             {isHomePage && (
@@ -61,127 +93,111 @@ export default function NavBar() {
                     ${isContact
                         ? 'w-[50%] rounded-4xl top-2 bg-[#fff7a6]'
                         : isScrolled
-                            ? 'w-[75%] xl:w-fit  rounded-4xl top-2 bg-[#fff7a6]'
+                            ? 'w-[75%] xl:w-fit rounded-4xl top-2 bg-[#fff7a6]'
                             : 'w-full top-0 bg-transparent'
                     }
                 `}>
                     <Topbar isHomePage={isHomePage} />
 
-                    <Link href="#" className="lg:hidden flex" prefetch={false}>
+                    <div className="lg:hidden flex" onClick={() => handleNavigation("/")}>
                         <Image src="/prism-bd.webp" alt="prismBd logo" width={35} height={35} />
                         <span className="sr-only">Prism BD</span>
-                    </Link>
+                    </div>
+
                     <nav className="flex-1 items-center justify-center ml-auto hidden lg:flex gap-6">
-                        {!isContact ?
-                            (
-                                <>
-                                    <Link
-                                        href="/"
-                                        className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-md font-medium transition-colors hover:text-[#006ef7] focus:text-[#006ef7] focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
-                                        prefetch={false}
+                        {!isContact ? (
+                            <>
+                                <button
+                                    onClick={() => handleNavigation("/")}
+                                    className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-md font-medium transition-colors hover:text-[#006ef7] focus:text-[#006ef7] focus:outline-none"
+                                >
+                                    Home
+                                </button>
+                                {/* <button
+                                    onClick={() => isProduct ? handleNavigation("/apparel", "home") : scrollToSection("home")}
+                                    className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-md font-medium transition-colors hover:text-[#006ef7] focus:text-[#006ef7] focus:outline-none"
+                                >
+                                    Home
+                                </button> */}
+                                <button
+                                    onClick={() => isProduct ? handleNavigation("/apparel", "about") : scrollToSection("about")}
+                                    className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-md font-medium transition-colors hover:text-[#006ef7] focus:text-[#006ef7] focus:outline-none"
+                                >
+                                    About
+                                </button>
+                                <button
+                                    onClick={() => isProduct ? handleNavigation("/apparel", "services") : scrollToSection("services")}
+                                    className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-md font-medium transition-colors hover:text-[#006ef7] focus:text-[#006ef7] focus:outline-none"
+                                >
+                                    Services
+                                </button>
+                                {isItpage && (
+                                    <button
+                                        onClick={() => scrollToSection("security")}
+                                        className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-md font-medium transition-colors hover:text-[#006ef7] focus:text-[#006ef7] focus:outline-none"
                                     >
-                                        Main Page
-                                    </Link>
-                                    <Link
-                                        href="#home"
-                                        className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-md font-medium transition-colors hover:text-[#006ef7] focus:text-[#006ef7] focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
-                                        prefetch={false}
+                                        Security
+                                    </button>
+                                )}
+                                {isItpage && (
+                                    <button
+                                        onClick={() => scrollToSection("quality_control")}
+                                        className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-md font-medium transition-colors hover:text-[#006ef7] focus:text-[#006ef7] focus:outline-none"
                                     >
-                                        Home
-                                    </Link>
-                                    <Link
-                                        href="#about"
-                                        className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-md font-medium transition-colors hover:text-[#006ef7] focus:text-[#006ef7] focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
-                                        prefetch={false}
+                                        Quality
+                                    </button>
+                                )}
+                                {!isItpage && (
+                                    <button
+                                        onClick={() => isProduct ? handleNavigation("/apparel", "products") : scrollToSection("products")}
+                                        className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-md font-medium transition-colors hover:text-[#006ef7] focus:text-[#006ef7] focus:outline-none"
                                     >
-                                        About
-                                    </Link>
-                                    <Link
-                                        href="#services"
-                                        className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-md font-medium transition-colors hover:text-[#006ef7] focus:text-[#006ef7] focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
-                                        prefetch={false}
+                                        Products
+                                    </button>
+                                )}
+                                {!isItpage && (
+                                    <button
+                                        onClick={() => isProduct ? handleNavigation("/apparel", "gallery") : scrollToSection("gallery")}
+                                        className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-md font-medium transition-colors hover:text-[#006ef7] focus:text-[#006ef7] focus:outline-none"
                                     >
-                                        Services
-                                    </Link>
-                                    {isItpage &&
-                                        <Link
-                                            href="#security"
-                                            className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-md font-medium transition-colors hover:text-[#006ef7] focus:text-[#006ef7] focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
-                                            prefetch={false}
-                                        >
-                                            Security
-                                        </Link>
-                                    }
-                                    {isItpage &&
-                                        <Link
-                                            href="#quality_control"
-                                            className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-md font-medium transition-colors hover:text-[#006ef7] focus:text-[#006ef7] focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
-                                            prefetch={false}
-                                        >
-                                            Quality
-                                        </Link>
-                                    }
-                                    {!isItpage &&
-                                        <Link
-                                            href="#products"
-                                            className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-md font-medium transition-colors hover:text-[#006ef7] focus:text-[#006ef7] focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
-                                            prefetch={false}
-                                        >
-                                            Products
-                                        </Link>
-                                    }
-                                    {!isJutepage && !isItpage &&
-                                        <Link
-                                            href="#gallery"
-                                            className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-md font-medium transition-colors hover:text-[#006ef7] focus:text-[#006ef7] focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
-                                            prefetch={false}
-                                        >
-                                            Gallery
-                                        </Link>
-                                    }
-                                    <Link
-                                        href="#contact"
-                                        className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-md font-medium transition-colors hover:text-[#006ef7] focus:text-[#006ef7] focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
-                                        prefetch={false}
-                                    >
-                                        Contact
-                                    </Link>
-                                </>
-                            )
-                            :
-                            (
-                                <>
-                                    <Link
-                                        href="/"
-                                        className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-md font-medium transition-colors hover:text-[#006ef7] focus:text-[#006ef7] focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
-                                        prefetch={false}
-                                    >
-                                        Main Page
-                                    </Link>
-                                    <Link
-                                        href="/apparel"
-                                        className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-md font-medium transition-colors hover:text-[#006ef7] focus:text-[#006ef7] focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
-                                        prefetch={false}
-                                    >
-                                        Apparel
-                                    </Link>
-                                    <Link
-                                        href="/jute"
-                                        className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-md font-medium transition-colors hover:text-[#006ef7] focus:text-[#006ef7] focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
-                                        prefetch={false}
-                                    >
-                                        Jute
-                                    </Link>
-                                    <Link
-                                        href="/it"
-                                        className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-md font-medium transition-colors hover:text-[#006ef7] focus:text-[#006ef7] focus:outline-none disabled:pointer-events-none disabled:opacity-50 data-[active]:bg-gray-100/50 data-[state=open]:bg-gray-100/50 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus:bg-gray-800 dark:focus:text-gray-50 dark:data-[active]:bg-gray-800/50 dark:data-[state=open]:bg-gray-800/50"
-                                        prefetch={false}
-                                    >
-                                        It
-                                    </Link>
-                                </>
-                            )
-                        }
+                                        Gallery
+                                    </button>
+                                )}
+                                <button
+                                    onClick={() => scrollToSection("contact")}
+                                    className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-md font-medium transition-colors hover:text-[#006ef7] focus:text-[#006ef7] focus:outline-none"
+                                >
+                                    Contact
+                                </button>
+                            </>
+                        ) : (
+                            <>
+                                <button
+                                    onClick={() => handleNavigation("/")}
+                                    className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-md font-medium transition-colors hover:text-[#006ef7] focus:text-[#006ef7] focus:outline-none"
+                                >
+                                    Home
+                                </button>
+                                <button
+                                    onClick={() => handleNavigation("/apparel")}
+                                    className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-md font-medium transition-colors hover:text-[#006ef7] focus:text-[#006ef7] focus:outline-none"
+                                >
+                                    Apparel
+                                </button>
+                                <button
+                                    onClick={() => handleNavigation("/jute")}
+                                    className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-md font-medium transition-colors hover:text-[#006ef7] focus:text-[#006ef7] focus:outline-none"
+                                >
+                                    Jute
+                                </button>
+                                <button
+                                    onClick={() => handleNavigation("/it")}
+                                    className="group inline-flex h-9 w-max items-center justify-center rounded-md px-4 py-2 text-md font-medium transition-colors hover:text-[#006ef7] focus:text-[#006ef7] focus:outline-none"
+                                >
+                                    IT
+                                </button>
+                            </>
+                        )}
                     </nav>
 
 
@@ -220,60 +236,60 @@ export default function NavBar() {
                             <div className="grid gap-2">
                                 {!isContact ? (
                                     <>
-                                        <Link href="/" onClick={() => setIsSheetOpen(false)} className="flex w-full items-center py-2 px-5 rounded-md hover:text-white hover:bg-[#006ef7] dark:hover:bg-gray-800 text-sm font-semibold transition-colors" prefetch={false}>
-                                            Main Page
-                                        </Link>
-                                        <Link href="#home" onClick={() => setIsSheetOpen(false)} className="flex w-full items-center py-2 px-5 rounded-md hover:text-white hover:bg-[#006ef7] dark:hover:bg-gray-800 text-sm font-semibold transition-colors" prefetch={false}>
+                                        <button onClick={() => handleNavigation("/")} className="flex w-full items-center py-2 px-5 rounded-md hover:text-white hover:bg-[#006ef7] dark:hover:bg-gray-800 text-sm font-semibold transition-colors text-left">
                                             Home
-                                        </Link>
-                                        <Link href="#about" onClick={() => setIsSheetOpen(false)} className="flex w-full items-center py-2 px-5 rounded-md hover:text-white hover:bg-[#006ef7] dark:hover:bg-gray-800 text-sm font-semibold transition-colors" prefetch={false}>
+                                        </button>
+                                        {/* <button onClick={() => isProduct ? handleNavigation("/apparel", "home") : scrollToSection("home")} className="flex w-full items-center py-2 px-5 rounded-md hover:text-white hover:bg-[#006ef7] dark:hover:bg-gray-800 text-sm font-semibold transition-colors text-left">
+                                            Home
+                                        </button> */}
+                                        <button onClick={() => isProduct ? handleNavigation("/apparel", "about") : scrollToSection("about")} className="flex w-full items-center py-2 px-5 rounded-md hover:text-white hover:bg-[#006ef7] dark:hover:bg-gray-800 text-sm font-semibold transition-colors text-left">
                                             About
-                                        </Link>
-                                        <Link href="#services" onClick={() => setIsSheetOpen(false)} className="flex w-full items-center py-2 px-5 rounded-md hover:text-white hover:bg-[#006ef7] dark:hover:bg-gray-800 text-sm font-semibold transition-colors" prefetch={false}>
+                                        </button>
+                                        <button onClick={() => isProduct ? handleNavigation("/apparel", "services") : scrollToSection("services")} className="flex w-full items-center py-2 px-5 rounded-md hover:text-white hover:bg-[#006ef7] dark:hover:bg-gray-800 text-sm font-semibold transition-colors text-left">
                                             Services
-                                        </Link>
+                                        </button>
 
                                         {isItpage && (
                                             <>
-                                                <Link href="#security" onClick={() => setIsSheetOpen(false)} className="flex w-full items-center py-2 px-5 rounded-md hover:text-white hover:bg-[#006ef7] dark:hover:bg-gray-800 text-sm font-semibold transition-colors" prefetch={false}>
+                                                <button onClick={() => scrollToSection("security")} className="flex w-full items-center py-2 px-5 rounded-md hover:text-white hover:bg-[#006ef7] dark:hover:bg-gray-800 text-sm font-semibold transition-colors text-left">
                                                     Security
-                                                </Link>
-                                                <Link href="#quality_control" onClick={() => setIsSheetOpen(false)} className="flex w-full items-center py-2 px-5 rounded-md hover:text-white hover:bg-[#006ef7] dark:hover:bg-gray-800 text-sm font-semibold transition-colors" prefetch={false}>
+                                                </button>
+                                                <button onClick={() => scrollToSection("quality_control")} className="flex w-full items-center py-2 px-5 rounded-md hover:text-white hover:bg-[#006ef7] dark:hover:bg-gray-800 text-sm font-semibold transition-colors text-left">
                                                     Quality
-                                                </Link>
+                                                </button>
                                             </>
                                         )}
 
                                         {!isItpage && (
-                                            <Link href="#products" onClick={() => setIsSheetOpen(false)} className="flex w-full items-center py-2 px-5 rounded-md hover:text-white hover:bg-[#006ef7] dark:hover:bg-gray-800 text-sm font-semibold transition-colors" prefetch={false}>
+                                            <button onClick={() => isProduct ? handleNavigation("/apparel", "products") : scrollToSection("products")} className="flex w-full items-center py-2 px-5 rounded-md hover:text-white hover:bg-[#006ef7] dark:hover:bg-gray-800 text-sm font-semibold transition-colors text-left">
                                                 Products
-                                            </Link>
+                                            </button>
                                         )}
 
-                                        {!isJutepage && !isItpage && (
-                                            <Link href="#gallery" onClick={() => setIsSheetOpen(false)} className="flex w-full items-center py-2 px-5 rounded-md hover:text-white hover:bg-[#006ef7] dark:hover:bg-gray-800 text-sm font-semibold transition-colors" prefetch={false}>
+                                        {!isItpage && (
+                                            <button onClick={() => isProduct ? handleNavigation("/apparel", "gallery") : scrollToSection("gallery")} className="flex w-full items-center py-2 px-5 rounded-md hover:text-white hover:bg-[#006ef7] dark:hover:bg-gray-800 text-sm font-semibold transition-colors text-left">
                                                 Gallery
-                                            </Link>
+                                            </button>
                                         )}
 
-                                        <Link href="#contact" onClick={() => setIsSheetOpen(false)} className="flex w-full items-center py-2 px-5 rounded-md hover:text-white hover:bg-[#006ef7] dark:hover:bg-gray-800 text-sm font-semibold transition-colors" prefetch={false}>
+                                        <button onClick={() => scrollToSection("contact")} className="flex w-full items-center py-2 px-5 rounded-md hover:text-white hover:bg-[#006ef7] dark:hover:bg-gray-800 text-sm font-semibold transition-colors text-left">
                                             Contact
-                                        </Link>
+                                        </button>
                                     </>
                                 ) : (
                                     <>
-                                        <Link href="/" onClick={() => setIsSheetOpen(false)} className="flex w-full items-center py-2 px-5 rounded-md hover:text-white hover:bg-[#006ef7] dark:hover:bg-gray-800 text-sm font-semibold transition-colors" prefetch={false}>
-                                            Main Page
-                                        </Link>
-                                        <Link href="/apparel" onClick={() => setIsSheetOpen(false)} className="flex w-full items-center py-2 px-5 rounded-md hover:text-white hover:bg-[#006ef7] dark:hover:bg-gray-800 text-sm font-semibold transition-colors" prefetch={false}>
+                                        <button onClick={() => handleNavigation("/")} className="flex w-full items-center py-2 px-5 rounded-md hover:text-white hover:bg-[#006ef7] dark:hover:bg-gray-800 text-sm font-semibold transition-colors text-left">
+                                            Home
+                                        </button>
+                                        <button onClick={() => handleNavigation("/apparel")} className="flex w-full items-center py-2 px-5 rounded-md hover:text-white hover:bg-[#006ef7] dark:hover:bg-gray-800 text-sm font-semibold transition-colors text-left">
                                             Apparel
-                                        </Link>
-                                        <Link href="/jute" onClick={() => setIsSheetOpen(false)} className="flex w-full items-center py-2 px-5 rounded-md hover:text-white hover:bg-[#006ef7] dark:hover:bg-gray-800 text-sm font-semibold transition-colors" prefetch={false}>
+                                        </button>
+                                        <button onClick={() => handleNavigation("/jute")} className="flex w-full items-center py-2 px-5 rounded-md hover:text-white hover:bg-[#006ef7] dark:hover:bg-gray-800 text-sm font-semibold transition-colors text-left">
                                             Jute
-                                        </Link>
-                                        <Link href="/it" onClick={() => setIsSheetOpen(false)} className="flex w-full items-center py-2 px-5 rounded-md hover:text-white hover:bg-[#006ef7] dark:hover:bg-gray-800 text-sm font-semibold transition-colors" prefetch={false}>
+                                        </button>
+                                        <button onClick={() => handleNavigation("/it")} className="flex w-full items-center py-2 px-5 rounded-md hover:text-white hover:bg-[#006ef7] dark:hover:bg-gray-800 text-sm font-semibold transition-colors text-left">
                                             IT
-                                        </Link>
+                                        </button>
                                     </>
                                 )}
                             </div>
@@ -287,7 +303,7 @@ export default function NavBar() {
                                                 href="https://www.linkedin.com/in/saimun-hasan"
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="italic font-semibold text-black"
+                                                className="font-semibold text-black"
                                             >
                                                 Saimun Hasan.
                                             </Link>{" "}
@@ -301,5 +317,5 @@ export default function NavBar() {
                 </header>
             )}
         </>
-    )
+    );
 }

@@ -21,56 +21,56 @@ interface GalleryImage {
 const galleryImages: GalleryImage[] = [
     {
         id: 1,
-        src: "/assets/img/contact/01.webp",
+        src: "/assets/img/products/jutebags/01.webp",
         alt: "Gallery Image 1",
         width: 800,
         height: 600
     },
     {
         id: 2,
-        src: "/assets/img/contact/02.webp",
+        src: "/assets/img/products/jutebags/02.webp",
         alt: "Gallery Image 2",
         width: 800,
         height: 1000
     },
     {
         id: 3,
-        src: "/assets/img/contact/03.webp",
+        src: "/assets/img/products/jutebags/03.webp",
         alt: "Gallery Image 3",
         width: 800,
         height: 750
     },
     {
         id: 4,
-        src: "/assets/img/contact/04.webp",
+        src: "/assets/img/products/jutebags/04.webp",
         alt: "Gallery Image 4",
         width: 800,
         height: 500
     },
     {
         id: 5,
-        src: "/assets/img/contact/05.webp",
+        src: "/assets/img/products/jutebags/05.webp",
         alt: "Gallery Image 5",
         width: 800,
         height: 900
     },
     {
         id: 6,
-        src: "/assets/img/contact/06.webp",
+        src: "/assets/img/products/jutebags/06.webp",
         alt: "Gallery Image 6",
         width: 800,
         height: 650
     },
     {
         id: 7,
-        src: "/assets/img/contact/07.webp",
+        src: "/assets/img/products/jutebags/07.webp",
         alt: "Gallery Image 7",
         width: 400,
         height: 400
     },
     {
         id: 8,
-        src: "/assets/img/contact/08.webp",
+        src: "/assets/img/products/jutebags/08.webp",
         alt: "Gallery Image 8",
         width: 500,
         height: 500
@@ -153,7 +153,7 @@ export default function JuteGallery() {
     return (
         <motion.div
             id="gallery"
-            className="w-full bg-[#fffdea] py-24 md:py-32 overflow-hidden"
+            className="w-full bg-[#f5ed9b7a] py-24 md:py-32 overflow-hidden"
             style={{ position: 'relative', padding: "2.5rem" }}
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -169,7 +169,7 @@ export default function JuteGallery() {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
                         <motion.h2
-                            className="text-4xl md:text-4xl lg:text-5xl font-bold mb-6 text-black leading-12 italic"
+                            className="text-4xl md:text-4xl lg:text-5xl font-bold mb-6 text-black leading-12"
                         >
                             Gallery
                         </motion.h2>

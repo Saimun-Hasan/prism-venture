@@ -44,7 +44,7 @@ export default function JuteHero({ backgroundImage }: HeroProps) {
                         <div className="xl:w-1/2"></div>
                         <div className="xl:w-3/5">
                             <div className="bg-[#000000ad] md:bg-[#000000ad] lg:bg-[#000000ad] xl:bg-transparent sm:bg-opacity-70 p-4 md:p-6 rounded-lg">
-                                <h1 className="text-center xl:text-left text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold italic">
+                                <h1 className="text-center xl:text-left text-[40px] sm:text-[54px] md:text-[60px] lg:text-[67px] leading-[40px] sm:leading-[52px] md:leading-[58px] lg:leading-[66px] font-bold">
                                     <motion.span
                                         initial="hidden"
                                         animate="visible"
@@ -69,7 +69,14 @@ export default function JuteHero({ backgroundImage }: HeroProps) {
                                                 {char === " " ? "\u00A0" : char}
                                             </motion.div>
                                         ))}
-                                        <br />
+                                    </motion.span>
+                                </h1>
+                                <h1 className="text-center xl:text-left  text-[31px] sm:text-[41px] md:text-[47px] lg:text-[54px] font-bold">
+                                    <motion.span
+                                        initial="hidden"
+                                        animate="visible"
+                                        variants={textVariants}
+                                    >
                                         <motion.span
                                             initial={{ opacity: 0, y: 20 }}
                                             animate={{ opacity: 1, y: 0 }}

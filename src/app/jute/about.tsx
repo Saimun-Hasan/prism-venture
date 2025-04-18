@@ -38,10 +38,10 @@ export default function JuteAbout({ yearsOfExperience, imageSrc }: ApparelAboutP
         >
             <div className="flex min-h-screen items-center justify-center text-white">
                 <div className="container px-4">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 text-justify">
                         <motion.div className="text-md font-medium mb-6 md:mb-12 text-gray-600">
                             <motion.h2
-                                className="text-4xl md:text-3xl lg:text-5xl font-bold mb-3 md:mb-12 text-gray-800 italic"
+                                className="text-4xl md:text-3xl lg:text-5xl font-bold mb-3 md:mb-12 text-gray-800"
                                 initial={{ opacity: 0, x: -50 }}
                                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
                                 transition={{ duration: 0.8 }}
@@ -56,7 +56,7 @@ export default function JuteAbout({ yearsOfExperience, imageSrc }: ApparelAboutP
                                 transition={{ duration: 0.8 }}
                             >
                                 Welcome to our eco-friendly initiative, where we are committed to promoting a greener and more sustainable world.
-                                Over the years we have been exporting jute products internationally. Few are :
+                                Over the years we have been exporting jute products such as:
                             </motion.p>
                             <motion.ul
                                 className="text-lg"
@@ -65,19 +65,12 @@ export default function JuteAbout({ yearsOfExperience, imageSrc }: ApparelAboutP
                                 transition={{ duration: 0.8, delay: 0.2 }}
                             >
                                 <li>Geo Jute Soil Savers</li>
-                                <li>Burlaps/Hessia</li>
-                                <li>Jute Yarn and Twine</li>
+                                <li>Burlaps/Hessian</li>
                                 <li>Jute Rope</li>
-                                <li>Jute Bags and Sacks</li>
+                                <li>Jute and Canvas Bags</li>
+                                <li>Jute Sacks</li>
+                                <li>Jute Yarn and Twine</li>
                             </motion.ul>
-                            <motion.p
-                                className="py-3 text-lg"
-                                initial={{ opacity: 0, x: -50 }}
-                                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
-                                transition={{ duration: 0.8, delay: 0.4 }}
-                            >
-                                Recently, we have also started exporting different types of jute and canvas bags ranging from fashionable everyday choices to grocery bags.
-                            </motion.p>
                         </motion.div>
                         <motion.div
                             className="relative flex items-center justify-center"
@@ -92,7 +85,7 @@ export default function JuteAbout({ yearsOfExperience, imageSrc }: ApparelAboutP
                                 height={650}
                                 className="rounded-3xl"
                             />
-                            <div className="experience-info italic" style={{ background: '#89aa5d' }}>
+                            <div className="experience-info" style={{ background: '#89aa5d' }}>
                                 <div className="experience-number">{count}</div>
                                 <div className="experience-text">
                                     YEARS<br />

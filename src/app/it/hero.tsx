@@ -43,7 +43,7 @@ export default function ItHero({ backgroundImage }: HeroProps) {
                     <div className="flex flex-col lg:flex-row">
                         <div className="xl:w-3/4">
                             <div className="bg-[#000000ad] bg-opacity-70 p-4 md:p-6 rounded-lg">
-                                <h1 className="text-center xl:text-left text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold italic">
+                                <h1 className="text-center xl:text-left text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-bold">
                                     <motion.span
                                         initial="hidden"
                                         animate="visible"

@@ -15,20 +15,28 @@ import {
     CardTitle,
 } from "@/components/ui/card";
 import {
-    NavigationMenu,
-    NavigationMenuContent,
-    NavigationMenuItem,
-    NavigationMenuLink,
-    NavigationMenuList,
-    NavigationMenuTrigger,
-} from "@/components/ui/navigation-menu";
+    DropdownMenu,
+    DropdownMenuContent,
+    DropdownMenuItem,
+    DropdownMenuTrigger
+} from "@/components/ui/dropdown-menu";
+
+//Lucide Icon
+import { ChevronDown } from "lucide-react";
 
 // Next.js
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+
+// Zustand store
+import { useProductStore } from "@/store/productStore";
 
 
 
 export default function ApparelProduct() {
+    const router = useRouter();
+    const setFilters = useProductStore((state) => state.setFilters);
+
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, amount: 0.3 });
 
@@ -55,6 +63,11 @@ export default function ApparelProduct() {
 
     const defaultBg = "/assets/img/bg/products/bg1.webp";
     const [bgImage, setBgImage] = useState<string>(defaultBg);
+
+    const handleSubcategoryClick = (category: string, subcategory: string) => {
+        setFilters(category, subcategory.toLowerCase());
+        router.push("/product");
+    };
 
     return (
         <div
@@ -87,14 +100,14 @@ export default function ApparelProduct() {
             <div className="absolute inset-0 bg-[#0000009e] opacity-85" style={{ zIndex: 1 }} />
 
             <div className="flex min-h-screen items-center justify-center text-white">
-                <div className="container mx-auto px-4 md:px-8 relative">
+                <div className="container mx-auto px-4 md:px-8 relative text-justify">
                     <motion.div
                         className="mb-16 md:mb-24 text-center max-w-3xl mx-auto z-10 relative"
                         variants={titleVariants}
                         initial="hidden"
                         animate={isInView ? "visible" : "hidden"}
                     >
-                        <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold mb-6 text-white leading-12 italic">
+                        <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold mb-6 text-white leading-12">
                             <motion.span
                                 initial={{ opacity: 0, x: -30 }}
                                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
@@ -136,7 +149,7 @@ export default function ApparelProduct() {
                                 }}
                             >
                                 <CardContent className="relative w-full flex-grow">
-                                    <CardTitle className="text-2xl uppercase tracking-widest text-white italic font-bold">
+                                    <CardTitle className="text-2xl uppercase tracking-widest text-white font-bold">
                                         Woven
                                     </CardTitle>
                                     <motion.div
@@ -155,30 +168,31 @@ export default function ApparelProduct() {
                                     </motion.div>
                                 </CardContent>
                                 <CardFooter className="flex items-center justify-center px-8">
-                                    <Button variant="outline" className='rounded-r-none w-full uppercase font-bold text-medium p-4' asChild>
-                                        <Link href="#">Woven Products</Link>
+                                    <Button variant="outline" className='rounded-r-none w-full uppercase font-bold text-medium p-4' onClick={() => {
+                                        setFilters('woven', null);
+                                        router.push("/product");
+                                    }}>
+                                        Woven Products
                                     </Button>
 
-                                    <NavigationMenu>
-                                        <NavigationMenuList>
-                                            <NavigationMenuItem>
-                                                <NavigationMenuTrigger className='rounded-l-none w-full uppercase font-bold text-medium p-4'>
 
-                                                </NavigationMenuTrigger>
-                                                <NavigationMenuContent>
-                                                    <NavigationMenuLink>
-                                                        Shirts
-                                                    </NavigationMenuLink>
-                                                    <NavigationMenuLink>
-                                                        Denims
-                                                    </NavigationMenuLink>
-                                                    <NavigationMenuLink>
-                                                        Suits
-                                                    </NavigationMenuLink>
-                                                </NavigationMenuContent>
-                                            </NavigationMenuItem>
-                                        </NavigationMenuList>
-                                    </NavigationMenu>
+                                    <DropdownMenu>
+                                        <DropdownMenuTrigger style={{ background: 'white', padding: '6px', borderRadius: "0px 3px 3px 0px" }}>
+                                            <ChevronDown size={24} className="text-black" />
+                                        </DropdownMenuTrigger>
+
+                                        <DropdownMenuContent align="start" side="bottom">
+                                            <DropdownMenuItem onClick={() => handleSubcategoryClick('woven', 'shirts')}>
+                                                Shirts
+                                            </DropdownMenuItem>
+                                            <DropdownMenuItem onClick={() => handleSubcategoryClick('woven', 'denims')}>
+                                                Denims
+                                            </DropdownMenuItem>
+                                            <DropdownMenuItem onClick={() => handleSubcategoryClick('woven', 'suits')}>
+                                                Suits
+                                            </DropdownMenuItem>
+                                        </DropdownMenuContent>
+                                    </DropdownMenu>
                                 </CardFooter>
                             </Card>
                         </motion.div>
@@ -200,7 +214,7 @@ export default function ApparelProduct() {
                                 }}
                             >
                                 <CardContent className="relative w-full flex-grow">
-                                    <CardTitle className="text-2xl uppercase tracking-widest text-white italic font-bold">
+                                    <CardTitle className="text-2xl uppercase tracking-widest text-white font-bold">
                                         Knit
                                     </CardTitle>
                                     <motion.p
@@ -221,26 +235,24 @@ export default function ApparelProduct() {
                                         <Link href="#">Knit</Link>
                                     </Button>
 
-                                    <NavigationMenu>
-                                        <NavigationMenuList>
-                                            <NavigationMenuItem>
-                                                <NavigationMenuTrigger className='rounded-l-none w-full uppercase font-bold text-medium p-4'>
 
-                                                </NavigationMenuTrigger>
-                                                <NavigationMenuContent>
-                                                    <NavigationMenuLink>
-                                                        T-shirts
-                                                    </NavigationMenuLink>
-                                                    <NavigationMenuLink>
-                                                        Polo
-                                                    </NavigationMenuLink>
-                                                    <NavigationMenuLink>
-                                                        Single & Double Jersey
-                                                    </NavigationMenuLink>
-                                                </NavigationMenuContent>
-                                            </NavigationMenuItem>
-                                        </NavigationMenuList>
-                                    </NavigationMenu>
+                                    <DropdownMenu>
+                                        <DropdownMenuTrigger style={{ background: 'white', padding: '6px', borderRadius: "0px 3px 3px 0px" }}>
+                                            <ChevronDown size={24} className="text-black" />
+                                        </DropdownMenuTrigger>
+
+                                        <DropdownMenuContent align="start" side="bottom">
+                                            <DropdownMenuItem onClick={() => handleSubcategoryClick('knit', 't-shirt')}>
+                                                T-shirts
+                                            </DropdownMenuItem>
+                                            <DropdownMenuItem onClick={() => handleSubcategoryClick('knit', 'oolo')}>
+                                                Polo
+                                            </DropdownMenuItem>
+                                            <DropdownMenuItem onClick={() => handleSubcategoryClick('knit', 'jersey')}>
+                                                Single & Double Jersey
+                                            </DropdownMenuItem>
+                                        </DropdownMenuContent>
+                                    </DropdownMenu>
                                 </CardFooter>
                             </Card>
                         </motion.div>
@@ -262,7 +274,7 @@ export default function ApparelProduct() {
                                 }}
                             >
                                 <CardContent className="relative w-full flex-grow">
-                                    <CardTitle className="text-2xl uppercase tracking-widest text-white italic font-bold">
+                                    <CardTitle className="text-2xl uppercase tracking-widest text-white font-bold">
                                         Sweater
                                     </CardTitle>
                                     <motion.p

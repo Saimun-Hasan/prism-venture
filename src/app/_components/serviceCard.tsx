@@ -96,7 +96,7 @@ export default function ServiceCard({ icon: Icon, title, description, index }: S
             </div>
 
             <motion.h3
-                className="text-2xl font-bold mb-3 text-gray-800 relative z-10 italic service-title"
+                className="text-2xl font-bold mb-3 text-gray-800 relative z-10 service-title"
                 animate={{
                     x: isHovered ? 5 : 0,
                 }}
@@ -106,7 +106,7 @@ export default function ServiceCard({ icon: Icon, title, description, index }: S
             </motion.h3>
 
             <motion.p
-                className="text-gray-600 flex-grow relative z-10 font-normal"
+                className="text-gray-600 flex-grow relative z-10 font-normal text-justify"
                 variants={descriptionVariants}
             >
                 {description}

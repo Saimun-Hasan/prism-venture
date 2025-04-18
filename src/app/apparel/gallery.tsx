@@ -169,7 +169,7 @@ export default function ApparelGallery() {
                         transition={{ duration: 0.8, ease: "easeOut" }}
                     >
                         <motion.h2
-                            className="text-4xl md:text-4xl lg:text-5xl font-bold mb-6 text-black leading-12 italic"
+                            className="text-4xl md:text-4xl lg:text-5xl font-bold mb-6 text-black leading-12"
                         >
                             Gallery
                         </motion.h2>

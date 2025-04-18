@@ -38,10 +38,10 @@ export default function ItAbout({ yearsOfExperience, imageSrc }: ApparelAboutPro
         >
             <div className="flex min-h-screen items-center justify-center text-white">
                 <div className="container px-4">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 text-justify">
                         <motion.div className="flex flex-col item-start justify-center text-md font-medium mb-6 md:mb-12 text-gray-600">
                             <motion.h2
-                                className="text-4xl md:text-3xl lg:text-5xl font-bold mb-3 md:mb-12 text-gray-800 italic"
+                                className="text-4xl md:text-3xl lg:text-5xl font-bold mb-3 md:mb-12 text-gray-800"
                                 initial={{ opacity: 0, x: -50 }}
                                 animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
                                 transition={{ duration: 0.8 }}
@@ -75,7 +75,7 @@ export default function ItAbout({ yearsOfExperience, imageSrc }: ApparelAboutPro
                                 height={650}
                                 className="rounded-3xl"
                             />
-                            <div className="experience-info italic">
+                            <div className="experience-info">
                                 <div className="experience-number">{count}</div>
                                 <div className="experience-text">
                                     YEARS<br />

@@ -46,7 +46,7 @@ export default function Contact() {
                         <div className="xl:w-1/2"></div>
                         <div className="xl:w-3/4">
                             <div className="bg-black bg-opacity-70 p-4 md:p-6 rounded-lg">
-                                <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold mb-6 text-white leading-tight italic">
+                                <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold mb-6 text-white leading-tight">
                                     <motion.span
                                         initial={{ opacity: 0, x: -30 }}
                                         animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
