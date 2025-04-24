@@ -32,7 +32,7 @@ export default function Itsecurity() {
                         >
                             <Image
                                 src={"/assets/img/about/security.webp"}
-                                alt="About"
+                                alt="Security"
                                 width={450}
                                 height={450}
                                 className="rounded-3xl"

@@ -100,7 +100,7 @@ export default function NavBar() {
                     <Topbar isHomePage={isHomePage} />
 
                     <div className="lg:hidden flex" onClick={() => handleNavigation("/")}>
-                        <Image src="/prism-bd.webp" alt="prismBd logo" width={35} height={35} />
+                        <Image src="/prism-bd.webp" alt="Prism Venture logo" width={35} height={35} />
                         <span className="sr-only">Prism BD</span>
                     </div>
 

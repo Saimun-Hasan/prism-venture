@@ -111,7 +111,7 @@ Includes detailed information on security measures and quality control processes
 
 Prism Venture
 - Address: House # 317 (2nd floor), Road # 04, Baridhara DOHS, Dhaka-1206
-- Phone: +880-02-8417590, +8801713363842
+- Phone: +880-02-8417590, +880-02-8417591, +8801713363842
 - Email: saadi@prismbd.net
 
 ## My Contribution

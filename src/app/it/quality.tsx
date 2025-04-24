@@ -103,7 +103,7 @@ export default function Itquality() {
                         >
                             <Image
                                 src={"/assets/img/about/quality_control.webp"}
-                                alt="About"
+                                alt="Quality Control"
                                 width={650}
                                 height={650}
                                 className="rounded-3xl"

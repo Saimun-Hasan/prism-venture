@@ -103,6 +103,10 @@ export default function Contact() {
                                                     <PhoneCall size={16} strokeWidth={1.75} className="shrink-0" />
                                                     <span className="truncate">+880-02-8417590</span>
                                                 </Link>
+                                                <Link href="tel:+880-02-8417591" className="flex gap-1.5 hover:text-yellow-200 transition-colors w-full sm:w-auto py-1 text-xs md:text-sm" prefetch={false}>
+                                                    <PhoneCall size={16} strokeWidth={1.75} className="shrink-0" />
+                                                    <span className="truncate">+880-02-8417591</span>
+                                                </Link>
                                                 <Link href="tel:+8801713363842" className="flex gap-1.5 hover:text-yellow-200 transition-colors w-full sm:w-auto py-1 text-xs md:text-sm" prefetch={false}>
                                                     <PhoneCall size={16} strokeWidth={1.75} className="shrink-0" />
                                                     <span className="truncate">+8801713363842</span>

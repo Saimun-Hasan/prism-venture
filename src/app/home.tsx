@@ -75,18 +75,18 @@ export default function Home() {
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="flex w-full items-center justify-center p-8 rounded-lg backdrop-blur-sm"
+                    className="flex w-full items-center justify-center p-4 rounded-lg backdrop-blur-sm"
                     style={{ backgroundColor: 'rgba(0,0,0,0.7)' }}
                 >
                     <div className="text-center">
                         <h1 className="text-5xl font-extrabold tracking-tight text-[#fff7a6] sm:text-[5rem]">
                             <Image
                                 src={'/prism-bd.webp'}
-                                alt={"logo"}
+                                alt={"prism Venture logo"}
                                 quality={80}
                                 priority
-                                width={150}
-                                height={150}
+                                width={100}
+                                height={100}
                                 className="transition-transform duration-700 ease-in-out justify-self-center mb-6"
                             />
                             Prism Venture

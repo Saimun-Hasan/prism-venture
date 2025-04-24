@@ -90,6 +90,16 @@ export default function ApparelService({ backgroundImage }: ApparelServiceProps)
             icon: Award,
             title: "Quality\n Certified",
             description: "Inspection by any International reputed 3rd party e.g. SGS/BV/Hohenstein is workable."
+        },
+        {
+            icon: Award,
+            title: "Commercial & \n logistics",
+            description: "Our expert team follow-up every step from cargo booking to freight forwarder/shipping company, cargo hand-over up to delivery to destination port. Along with all related documentation draft to original bank to bank documents to expedite cargo clearance."
+        },
+        {
+            icon: Award,
+            title: "CAD",
+            description: "Computer Aided Design (CAD) is an essential tool for pattern making from samples to production. We offer in-house CAD for pattern making, grading, marker making optimizing fabric consumption.  Geometry drivers can make an infinite number of changes to the shapes and size of the pattern per customer fit/styling comments."
         }
     ];
 

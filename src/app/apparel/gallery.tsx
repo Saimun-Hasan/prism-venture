@@ -22,56 +22,56 @@ const galleryImages: GalleryImage[] = [
     {
         id: 1,
         src: "/assets/img/contact/01.webp",
-        alt: "Gallery Image 1",
+        alt: "Apparel Image 1",
         width: 800,
         height: 600
     },
     {
         id: 2,
         src: "/assets/img/contact/02.webp",
-        alt: "Gallery Image 2",
+        alt: "Apparel Image 2",
         width: 800,
         height: 1000
     },
     {
         id: 3,
         src: "/assets/img/contact/03.webp",
-        alt: "Gallery Image 3",
+        alt: "Apparel Image 3",
         width: 800,
         height: 750
     },
     {
         id: 4,
         src: "/assets/img/contact/04.webp",
-        alt: "Gallery Image 4",
+        alt: "Apparel Image 4",
         width: 800,
         height: 500
     },
     {
         id: 5,
         src: "/assets/img/contact/05.webp",
-        alt: "Gallery Image 5",
+        alt: "Apparel Image 5",
         width: 800,
         height: 900
     },
     {
         id: 6,
         src: "/assets/img/contact/06.webp",
-        alt: "Gallery Image 6",
+        alt: "Apparel Image 6",
         width: 800,
         height: 650
     },
     {
         id: 7,
         src: "/assets/img/contact/07.webp",
-        alt: "Gallery Image 7",
+        alt: "Apparel Image 7",
         width: 400,
         height: 400
     },
     {
         id: 8,
         src: "/assets/img/contact/08.webp",
-        alt: "Gallery Image 8",
+        alt: "Apparel Image 8",
         width: 500,
         height: 500
     },

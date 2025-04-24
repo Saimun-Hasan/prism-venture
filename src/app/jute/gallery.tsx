@@ -29,49 +29,84 @@ const galleryImages: GalleryImage[] = [
     {
         id: 2,
         src: "/assets/img/products/jutebags/02.webp",
-        alt: "Gallery Image 2",
+        alt: "BZ Jute Bag 38x40x15",
         width: 800,
         height: 1000
     },
     {
         id: 3,
         src: "/assets/img/products/jutebags/03.webp",
-        alt: "Gallery Image 3",
+        alt: "CF Jute Bag 45x36x15",
         width: 800,
         height: 750
     },
     {
         id: 4,
         src: "/assets/img/products/jutebags/04.webp",
-        alt: "Gallery Image 4",
+        alt: "TJ Jute Bag 43x34x22",
         width: 800,
         height: 500
     },
     {
         id: 5,
         src: "/assets/img/products/jutebags/05.webp",
-        alt: "Gallery Image 5",
+        alt: "Wine Jute Bag",
         width: 800,
         height: 900
     },
     {
         id: 6,
         src: "/assets/img/products/jutebags/06.webp",
-        alt: "Gallery Image 6",
+        alt: "Wine Double Jute Bag",
         width: 800,
         height: 650
     },
     {
         id: 7,
         src: "/assets/img/products/jutebags/07.webp",
-        alt: "Gallery Image 7",
+        alt: "Wine Jute Sack 15x36x0",
         width: 400,
         height: 400
     },
     {
         id: 8,
         src: "/assets/img/products/jutebags/08.webp",
-        alt: "Gallery Image 8",
+        alt: "Wine Single Jute Bag 9x35x9",
+        width: 500,
+        height: 500
+    },
+    {
+        id: 9,
+        src: "/assets/img/products/jutebags/09.webp",
+        alt: "WM Jute Bag 29x37x19",
+        width: 500,
+        height: 500
+    },
+    {
+        id: 10,
+        src: "/assets/img/products/jutebags/10.webp",
+        alt: "Jute Cotton Bag 01",
+        width: 500,
+        height: 500
+    },
+    {
+        id: 11,
+        src: "/assets/img/products/jutebags/11.webp",
+        alt: "Jute Cotton Bag 02",
+        width: 500,
+        height: 500
+    },
+    {
+        id: 12,
+        src: "/assets/img/products/jutebags/12.webp",
+        alt: "Cotton Canvas",
+        width: 500,
+        height: 500
+    },
+    {
+        id: 13,
+        src: "/assets/img/products/jutebags/13.webp",
+        alt: "Jute Cotton Bag 03",
         width: 500,
         height: 500
     },

@@ -7,35 +7,35 @@ import React, { useRef, useState } from "react";
 import { motion, useInView, AnimatePresence } from "motion/react";
 
 // UI Components
-import { Button } from "@/components/ui/button";
+// import { Button } from "@/components/ui/button";
 import {
     Card,
     CardContent,
-    CardFooter,
+    // CardFooter,
     CardTitle,
 } from "@/components/ui/card";
-import {
+/* import {
     DropdownMenu,
     DropdownMenuContent,
     DropdownMenuItem,
     DropdownMenuTrigger
-} from "@/components/ui/dropdown-menu";
+} from "@/components/ui/dropdown-menu"; */
 
 //Lucide Icon
-import { ChevronDown } from "lucide-react";
+// import { ChevronDown } from "lucide-react";
 
 // Next.js
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+// import Link from "next/link";
+// import { useRouter } from "next/navigation";
 
 // Zustand store
-import { useProductStore } from "@/store/productStore";
+// import { useProductStore } from "@/store/productStore";
 
 
 
 export default function ApparelProduct() {
-    const router = useRouter();
-    const setFilters = useProductStore((state) => state.setFilters);
+    /* const router = useRouter();
+    const setFilters = useProductStore((state) => state.setFilters); */
 
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true, amount: 0.3 });
@@ -64,10 +64,10 @@ export default function ApparelProduct() {
     const defaultBg = "/assets/img/bg/products/bg1.webp";
     const [bgImage, setBgImage] = useState<string>(defaultBg);
 
-    const handleSubcategoryClick = (category: string, subcategory: string) => {
+    /* const handleSubcategoryClick = (category: string, subcategory: string) => {
         setFilters(category, subcategory.toLowerCase());
         router.push("/product");
-    };
+    }; */
 
     return (
         <div
@@ -167,7 +167,7 @@ export default function ApparelProduct() {
                                         </p>
                                     </motion.div>
                                 </CardContent>
-                                <CardFooter className="flex items-center justify-center px-8">
+                                {/* <CardFooter className="flex items-center justify-center px-8">
                                     <Button variant="outline" className='rounded-r-none w-full uppercase font-bold text-medium p-4' onClick={() => {
                                         setFilters('woven', null);
                                         router.push("/product");
@@ -193,7 +193,7 @@ export default function ApparelProduct() {
                                             </DropdownMenuItem>
                                         </DropdownMenuContent>
                                     </DropdownMenu>
-                                </CardFooter>
+                                </CardFooter> */}
                             </Card>
                         </motion.div>
 
@@ -230,7 +230,7 @@ export default function ApparelProduct() {
                                         Embrace luxury and coziness with our curated selection of boxers, underwear, tank tops, panties, pajamas, and sleepwear.
                                     </motion.p>
                                 </CardContent>
-                                <CardFooter className="flex items-center justify-center px-8">
+                                {/* <CardFooter className="flex items-center justify-center px-8">
                                     <Button variant="outline" className='rounded-r-none w-full uppercase font-bold text-medium p-4' asChild>
                                         <Link href="#">Knit</Link>
                                     </Button>
@@ -253,7 +253,7 @@ export default function ApparelProduct() {
                                             </DropdownMenuItem>
                                         </DropdownMenuContent>
                                     </DropdownMenu>
-                                </CardFooter>
+                                </CardFooter> */}
                             </Card>
                         </motion.div>
 
@@ -289,11 +289,11 @@ export default function ApparelProduct() {
                                         and chenille. Embrace the beauty of handcrafted knits and elevate your winter wardrobe with our luxurious selection.
                                     </motion.p>
                                 </CardContent>
-                                <CardFooter className="flex items-center justify-center px-8">
+                                {/* <CardFooter className="flex items-center justify-center px-8">
                                     <Button variant="outline" className='w-full uppercase font-bold text-medium p-5' asChild>
                                         <Link href="#">Sweater</Link>
                                     </Button>
-                                </CardFooter>
+                                </CardFooter> */}
                             </Card>
                         </motion.div>
 

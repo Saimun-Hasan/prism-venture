@@ -32,7 +32,7 @@ export default function JuteService() {
                         >
                             <Image
                                 src="/assets/img/about/about_eco.webp"
-                                alt="About"
+                                alt="About Us"
                                 width={650}
                                 height={650}
                                 className="rounded-3xl"
