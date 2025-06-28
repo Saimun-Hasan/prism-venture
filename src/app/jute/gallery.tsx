@@ -25,7 +25,7 @@ const galleryImages: GalleryImage[] = [
         alt: "BZ Jute Bag 38x40x15",
         width: 800,
         height: 1000
-    },,
+    },
     {
         id: 2,
         src: "/assets/img/products/jutebags/02.webp",
