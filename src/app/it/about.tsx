@@ -79,8 +79,7 @@ export default function ItAbout({ yearsOfExperience, imageSrc }: ApparelAboutPro
                                 <div className="experience-number">{count}</div>
                                 <div className="experience-text">
                                     YEARS<br />
-                                    EXPERIENCE<br />
-                                    WORKING
+                                    EXPERIENCE
                                 </div>
                             </div>
                         </motion.div>

@@ -81,15 +81,12 @@ export default function Contact() {
 
                                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-sm text-gray-300">
                                         <div>
-                                            <h6 className="text-lg font-semibold text-white mb-2">Products</h6>
+                                            {/* <h6 className="text-lg font-semibold text-white mb-2">Products</h6>
                                             <ul className="space-y-1">
                                                 <li><a href="products.html?category=woven" className="hover:underline">Woven</a></li>
                                                 <li><a href="products.html?category=knit" className="hover:underline">Knit</a></li>
                                                 <li><a href="products.html?category=sweaters" className="hover:underline">Sweater</a></li>
-                                            </ul>
-                                        </div>
-
-                                        <div>
+                                            </ul> */}
                                             <h6 className="text-lg font-semibold text-white mb-2">Location</h6>
                                             <ul className="mb-4">
                                                 <li>
@@ -97,6 +94,9 @@ export default function Contact() {
                                                     Road # 04, Baridhara DOHS, Dhaka-1206
                                                 </li>
                                             </ul>
+                                        </div>
+
+                                        <div>
 
                                             <div className='flex flex-col justify-start'>
                                                 <Link href="tel:+880-02-8417590" className="flex gap-1.5 hover:text-yellow-200 transition-colors w-full sm:w-auto py-1 text-xs md:text-sm" prefetch={false}>

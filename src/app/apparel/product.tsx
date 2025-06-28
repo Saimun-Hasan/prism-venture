@@ -14,6 +14,7 @@ import {
     // CardFooter,
     CardTitle,
 } from "@/components/ui/card";
+import Image from "next/image";
 /* import {
     DropdownMenu,
     DropdownMenuContent,
@@ -149,6 +150,15 @@ export default function ApparelProduct() {
                                 }}
                             >
                                 <CardContent className="relative w-full flex-grow">
+                                    <Image
+                                        src={'/assets/img/products/woven.webp'}
+                                        alt={"Woven Products"}
+                                        quality={80}
+                                        priority
+                                        width={400}
+                                        height={400}
+                                        className="transition-transform duration-700 ease-in-out mb-6 rounded-sm"
+                                    />
                                     <CardTitle className="text-2xl uppercase tracking-widest text-white font-bold">
                                         Woven
                                     </CardTitle>
@@ -214,6 +224,15 @@ export default function ApparelProduct() {
                                 }}
                             >
                                 <CardContent className="relative w-full flex-grow">
+                                    <Image
+                                        src={'/assets/img/products/knit.webp'}
+                                        alt={"Knit Products"}
+                                        quality={80}
+                                        priority
+                                        width={400}
+                                        height={400}
+                                        className="transition-transform duration-700 ease-in-out mb-6 rounded-sm"
+                                    />
                                     <CardTitle className="text-2xl uppercase tracking-widest text-white font-bold">
                                         Knit
                                     </CardTitle>
@@ -274,6 +293,15 @@ export default function ApparelProduct() {
                                 }}
                             >
                                 <CardContent className="relative w-full flex-grow">
+                                    <Image
+                                        src={'/assets/img/products/sweater.webp'}
+                                        alt={"Sweater products"}
+                                        quality={80}
+                                        priority
+                                        width={400}
+                                        height={400}
+                                        className="transition-transform duration-700 ease-in-out mb-6 rounded-sm"
+                                    />
                                     <CardTitle className="text-2xl uppercase tracking-widest text-white font-bold">
                                         Sweater
                                     </CardTitle>

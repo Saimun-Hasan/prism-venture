@@ -114,8 +114,7 @@ export default function ApparelAbout({ yearsOfExperience, imageSrc }: ApparelAbo
                                 <div className="experience-number">{count}</div>
                                 <div className="experience-text">
                                     YEARS<br />
-                                    EXPERIENCE<br />
-                                    WORKING
+                                    EXPERIENCE
                                 </div>
                             </div>
                         </motion.div>

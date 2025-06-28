@@ -53,54 +53,39 @@ export default function ApparelService({ backgroundImage }: ApparelServiceProps)
     const services = [
         {
             icon: Scissors,
-            title: "Development, samples & production",
+            title: "Developments, samples & production",
             description: "From concept to creation, we bring your fashion ideas to life with expert product development, crafting captivating salesman samples, and ensuring flawless production."
         },
         {
             icon: Factory,
-            title: "Identifying the Perfect Factory",
+            title: "Identifying the correct factory",
             description: "Identifying the right factory based on each enquiry/order for quality, quantity, timely delivery."
         },
-        {
+        /* {
             icon: ShieldCheck,
             title: "Quality Control\n at Every Step",
             description: "Sampling & monitoring from 1st proto till TOP/shipping sample."
-        },
-        {
-            icon: BarChart4,
-            title: "Empowering\n Factories",
-            description: "Total Merchandising Solutions for Streamlined Success. From ideation to delivery, we optimize the process for seamless efficiency."
-        },
-        {
-            icon: ClipboardCheck,
-            title: "Mastering\n Manufacturing",
-            description: "Providing guidance/scheduling for implementing effective manufacturing."
-        },
-        {
-            icon: Truck,
-            title: "Cutting to\n Shipping",
-            description: "Order monitoring starting from trial cutting to shipment."
-        },
-        {
-            icon: Search,
-            title: "Precision\n Inspections",
-            description: "In-line & final inspection of merchandise as per required AQL."
-        },
-        {
-            icon: Award,
-            title: "Quality\n Certified",
-            description: "Inspection by any International reputed 3rd party e.g. SGS/BV/Hohenstein is workable."
-        },
-        {
-            icon: Award,
-            title: "Commercial & \n logistics",
-            description: "Our expert team follow-up every step from cargo booking to freight forwarder/shipping company, cargo hand-over up to delivery to destination port. Along with all related documentation draft to original bank to bank documents to expedite cargo clearance."
-        },
+        } */
         {
             icon: Award,
             title: "CAD",
             description: "Computer Aided Design (CAD) is an essential tool for pattern making from samples to production. We offer in-house CAD for pattern making, grading, marker making optimizing fabric consumption.  Geometry drivers can make an infinite number of changes to the shapes and size of the pattern per customer fit/styling comments."
-        }
+        },
+        {
+            icon: ClipboardCheck,
+            title: "Mastering\n production",
+            description: "Total merchandising solutions for streamlined success from ideation to delivery, we optimize the process for seamless efficiency. Providing guidance and scheduling to ensure quality and timely delivery."
+        },
+        {
+            icon: Award,
+            title: "Quality control\n & inspection",
+            description: "Our team monitors every step of the production starting from trial cutting to shipment. We do in-line & final inspection of merchandise as per required AQL and inspection by any International reputed 3rd party e.g. SGS/BV/Hohenstein is welcome."
+        },
+        {
+            icon: Award,
+            title: "Commercial & \n logistics",
+            description: "Our expert team follows up on every step from cargo booking to delivery at the destination port, along with all related documentation to expedite cargo clearance."
+        },
     ];
 
     return (
@@ -148,7 +133,7 @@ export default function ApparelService({ backgroundImage }: ApparelServiceProps)
                     </motion.div>
 
                     <motion.div
-                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
                         variants={containerVariants}
                         initial="hidden"
                         animate={isInView ? "visible" : "hidden"}

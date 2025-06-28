@@ -21,11 +21,11 @@ interface GalleryImage {
 const galleryImages: GalleryImage[] = [
     {
         id: 1,
-        src: "/assets/img/products/jutebags/01.webp",
-        alt: "Gallery Image 1",
+        src: "/assets/img/products/jutebags/aop.webp",
+        alt: "BZ Jute Bag 38x40x15",
         width: 800,
-        height: 600
-    },
+        height: 1000
+    },,
     {
         id: 2,
         src: "/assets/img/products/jutebags/02.webp",
@@ -103,12 +103,19 @@ const galleryImages: GalleryImage[] = [
         width: 500,
         height: 500
     },
-    {
+    /* {
         id: 13,
         src: "/assets/img/products/jutebags/13.webp",
         alt: "Jute Cotton Bag 03",
         width: 500,
         height: 500
+    }, */
+    {
+        id: 13,
+        src: "/assets/img/products/jutebags/01.webp",
+        alt: "Gallery Image 1",
+        width: 800,
+        height: 600
     },
 ];
 

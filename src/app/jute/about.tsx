@@ -89,8 +89,7 @@ export default function JuteAbout({ yearsOfExperience, imageSrc }: ApparelAboutP
                                 <div className="experience-number">{count}</div>
                                 <div className="experience-text">
                                     YEARS<br />
-                                    EXPERIENCE<br />
-                                    WORKING
+                                    EXPERIENCE
                                 </div>
                             </div>
                         </motion.div>

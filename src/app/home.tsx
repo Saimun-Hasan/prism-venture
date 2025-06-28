@@ -70,13 +70,12 @@ export default function Home() {
                 />
             </AnimatePresence>
 
-            <div className="container relative z-10 flex flex-col items-center justify-center gap-12 px-4 py-16">
+            <div className="container relative z-10 flex flex-col items-center justify-center gap-12 px-4 py-16 backdrop-blur-sm rounded-lg" style={{ backgroundColor: 'rgb(255 255 255 / 30%)' }}>
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
-                    className="flex w-full items-center justify-center p-4 rounded-lg backdrop-blur-sm"
-                    style={{ backgroundColor: 'rgba(0,0,0,0.7)' }}
+                    className="flex w-full items-center justify-center p-4 "
                 >
                     <div className="text-center">
                         <h1 className="text-5xl font-extrabold tracking-tight text-[#fff7a6] sm:text-[5rem]">
@@ -85,13 +84,13 @@ export default function Home() {
                                 alt={"prism Venture logo"}
                                 quality={80}
                                 priority
-                                width={100}
-                                height={100}
+                                width={250}
+                                height={250}
                                 className="transition-transform duration-700 ease-in-out justify-self-center mb-6"
                             />
-                            Prism Venture
+                            {/* Prism Venture */}
                         </h1>
-                        <p className="mt-4 text-xl text-white/90 max-w-2xl mx-auto">
+                        <p className="mt-4 text-2xl text-black font-bold  max-w-2xl mx-auto">
                             Excellence in Apparel, Jute Products, and IT Solutions
                         </p>
                     </div>
