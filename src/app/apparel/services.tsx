@@ -15,7 +15,9 @@ import {
     ClipboardCheck,
     // Truck,
     // Search,
-    Award
+    Award,
+    FolderCode,
+    Warehouse
 } from "lucide-react";
 
 // Components
@@ -67,7 +69,7 @@ export default function ApparelService({ backgroundImage }: ApparelServiceProps)
             description: "Sampling & monitoring from 1st proto till TOP/shipping sample."
         } */
         {
-            icon: Award,
+            icon: FolderCode,
             title: "CAD",
             description: "Computer Aided Design (CAD) is an essential tool for pattern making from samples to production. We offer in-house CAD for pattern making, grading, marker making optimizing fabric consumption.  Geometry drivers can make an infinite number of changes to the shapes and size of the pattern per customer fit/styling comments."
         },
@@ -82,7 +84,7 @@ export default function ApparelService({ backgroundImage }: ApparelServiceProps)
             description: "Our team monitors every step of the production starting from trial cutting to shipment. We do in-line & final inspection of merchandise as per required AQL and inspection by any International reputed 3rd party e.g. SGS/BV/Hohenstein is welcome."
         },
         {
-            icon: Award,
+            icon: Warehouse,
             title: "Commercial & \n logistics",
             description: "Our expert team follows up on every step from cargo booking to delivery at the destination port, along with all related documentation to expedite cargo clearance."
         },
