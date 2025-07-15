@@ -18,7 +18,7 @@ export default function Contact() {
     const pathname = usePathname();
 
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, amount: 0.3 });
+    const isInView = useInView(ref, { once: true, amount: 0.1 });
 
     const isJutepage = pathname === "/jute"
 
@@ -91,7 +91,7 @@ export default function Contact() {
                                             <ul className="mb-4">
                                                 <li>
                                                     House # 317 (2nd floor),<br />
-                                                    Road # 04, Baridhara DOHS, Dhaka-1206
+                                                    Road # 04, Baridhara DOHS, Dhaka-1206, Bangladesh
                                                 </li>
                                             </ul>
                                         </div>

@@ -10,11 +10,11 @@ import { motion, useInView } from "motion/react";
 import {
     Scissors,
     Factory,
-    ShieldCheck,
-    BarChart4,
+    // ShieldCheck,
+    // BarChart4,
     ClipboardCheck,
-    Truck,
-    Search,
+    // Truck,
+    // Search,
     Award
 } from "lucide-react";
 
@@ -28,7 +28,7 @@ interface ApparelServiceProps {
 
 export default function ApparelService({ backgroundImage }: ApparelServiceProps) {
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, amount: 0.3 });
+    const isInView = useInView(ref, { once: true, amount: 0.1 });
 
     const titleVariants = {
         hidden: { opacity: 0, y: 30 },
@@ -109,23 +109,24 @@ export default function ApparelService({ backgroundImage }: ApparelServiceProps)
                     <motion.div
                         className="mb-16 md:mb-24 text-center max-w-3xl mx-auto"
                         variants={titleVariants}
-                        initial="hidden"
-                        animate={isInView ? "visible" : "hidden"}
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+                        transition={{ duration: 0.8 }}
                     >
                         <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold mb-6 text-white leading-12">
                             <motion.span
-                                initial={{ opacity: 0, x: -30 }}
-                                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
-                                transition={{ delay: 0.3, duration: 0.6 }}
+                                initial={{ opacity: 0, x: -50 }}
+                                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+                                transition={{ duration: 0.8 }}
                             >
                                 From Vision to Reality
                             </motion.span>
                             {' '}
                             <motion.span
                                 className="text-[#006ef7]"
-                                initial={{ opacity: 0, x: 30 }}
-                                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
-                                transition={{ delay: 0.5, duration: 0.6 }}
+                                initial={{ opacity: 0, x: -50 }}
+                                animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -50 }}
+                                transition={{ duration: 0.8 }}
                             >
                                 Unraveling Our Services
                             </motion.span>

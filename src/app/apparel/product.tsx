@@ -39,7 +39,7 @@ export default function ApparelProduct() {
     const setFilters = useProductStore((state) => state.setFilters); */
 
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, amount: 0.3 });
+    const isInView = useInView(ref, { once: true, amount: 0.1 });
 
     const titleVariants = {
         hidden: { opacity: 0, y: 30 },

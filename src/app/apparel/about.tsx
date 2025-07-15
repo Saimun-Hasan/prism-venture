@@ -19,7 +19,7 @@ interface ApparelAboutProps {
 
 export default function ApparelAbout({ yearsOfExperience, imageSrc }: ApparelAboutProps) {
     const ref = useRef(null);
-    const isInView = useInView(ref, { once: true, amount: 0.3 });
+    const isInView = useInView(ref, { once: true, amount: 0.1 });
 
 
     const count = useCounter({
